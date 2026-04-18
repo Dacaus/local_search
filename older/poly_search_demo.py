@@ -126,3 +126,60 @@ plt.title("Schedule Landscape\nTheta=[[a,b],[0,1]]")
 # plt.show()
 plt.savefig('heatmap.png')
 print("Heatmap saved as heatmap.png")
+
+
+
+# =========================
+# 7. show heatmap values in text
+# =========================
+print("\n" + "="*50)
+print("Heatmap results (locality score for Theta=[[a,b],[0,1]])")
+print("Rows: a = -2 .. 2, Columns: b = -2 .. 2")
+print("-"*50)
+
+# print column headers
+print("a\\b\t", end="")
+for b in range(-2, 3):
+    print(f"{b}\t", end="")
+print()
+
+# print heatmap values
+for i, a in enumerate([-2, -1, 0, 1, 2]):
+    print(f"{a}\t", end="")
+    for j in range(5):
+        val = heat[i, j]
+        if np.isnan(val):
+            print("NaN\t", end="")
+        else:
+            # 得分是整数，直接输出整数值
+            print(f"{int(val)}\t", end="")
+    print()
+
+print("="*50)
+
+
+import json
+
+# 准备保存的数据
+output = {
+    "top_schedules": [],
+    "heatmap": {
+        "a_labels": [-2, -1, 0, 1, 2],
+        "b_labels": [-2, -1, 0, 1, 2],
+        "scores": heat.tolist()  # 将 numpy 数组转换为普通列表
+    }
+}
+
+# 填充 top_schedules（results 已排序）
+for rank, (theta, score) in enumerate(results[:10], start=1):
+    output["top_schedules"].append({
+        "rank": rank,
+        "theta": theta.tolist(),
+        "score": int(score)
+    })
+
+# 写入 JSON 文件
+with open("schedule_results.json", "w") as f:
+    json.dump(output, f, indent=2)
+
+print("Results also saved to schedule_results.json")
