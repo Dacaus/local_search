@@ -11,15 +11,23 @@
 #   matmul.c (prints runtime in seconds)
 # -----------------------------------------
 
-import subprocess
+
 import csv
-import os
 import statistics
+import subprocess
+import sys
+from itertools import product
+from pathlib import Path
 
-OUTPUT_DIR = "output_local"
-BIN_DIR = f"{OUTPUT_DIR}/bin"
+LOCAL_PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(LOCAL_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(LOCAL_PROJECT_ROOT))
 
-os.makedirs(BIN_DIR, exist_ok=True)
+from config import PROJECT_ROOT, MATMUL_PATH
+
+OUTPUT_LOCAL_DIR = PROJECT_ROOT / "output_local"
+OUTPUT_LOCAL_BIN_DIR = OUTPUT_LOCAL_DIR / "bin"
+RESULTS_CSV_PATH = OUTPUT_LOCAL_DIR / "results.csv"
 
 # =====================================
 # Baseline config (center point)
@@ -38,23 +46,25 @@ BASE = {
 # distance = changed flags count
 # =====================================
 
-configs = [
-    BASE,
+configs = [BASE]
 
-    # distance = 1
-    {"polly":"on","reschedule":"on","vectorize":"off","parallel":"off","tile":"16"},
-    {"polly":"on","reschedule":"off","vectorize":"on","parallel":"off","tile":"16"},
-    {"polly":"on","reschedule":"off","vectorize":"off","parallel":"on","tile":"16"},
-    {"polly":"on","reschedule":"off","vectorize":"off","parallel":"off","tile":"32"},
-    {"polly":"on","reschedule":"off","vectorize":"off","parallel":"off","tile":"64"},
+for reschedule, vectorize, parallel, tile in product(
+    ["off", "on"],
+    ["off", "on"],
+    ["off", "on"],
+    ["16", "32", "64"],
+):
+    cfg = {
+        "polly": "on",
+        "reschedule": reschedule,
+        "vectorize": vectorize,
+        "parallel": parallel,
+        "tile": tile,
+    }
+    if cfg != BASE:
+        configs.append(cfg)
 
-    # distance = 2
-    {"polly":"on","reschedule":"on","vectorize":"on","parallel":"off","tile":"16"},
-    {"polly":"on","reschedule":"on","vectorize":"off","parallel":"on","tile":"16"},
-    {"polly":"on","reschedule":"on","vectorize":"off","parallel":"off","tile":"32"},
-    {"polly":"on","reschedule":"off","vectorize":"on","parallel":"on","tile":"16"},
-    {"polly":"on","reschedule":"off","vectorize":"on","parallel":"off","tile":"32"},
-]
+print(f"✅ Generated {len(configs)} benchmark configurations around BASE")
 
 # =====================================
 # Helpers
@@ -78,7 +88,7 @@ def distance_from_base(cfg):
 
 
 def build_compile_cmd(cfg, exe_path):
-    cmd = ["clang", "-O3", "matmul.c", "-o", exe_path]
+    cmd = ["clang", "-O3", str(MATMUL_PATH), "-o", str(exe_path)]
 
     if cfg["polly"] == "on":
         cmd += ["-mllvm", "-polly"]
@@ -100,7 +110,7 @@ def build_compile_cmd(cfg, exe_path):
 
 def compile_and_run(cfg):
     name = config_name(cfg)
-    exe = f"{BIN_DIR}/{name}"
+    exe = OUTPUT_LOCAL_BIN_DIR / name
 
     # compile
     cmd = build_compile_cmd(cfg, exe)
@@ -113,7 +123,7 @@ def compile_and_run(cfg):
     runs = []
     for _ in range(5):
         out = subprocess.run(
-            exe,
+            str(exe),
             capture_output=True,
             text=True,
             check=True
@@ -161,7 +171,7 @@ for cfg in configs:
 # Save CSV
 # =====================================
 
-csv_path = f"{OUTPUT_DIR}/results.csv"
+csv_path = RESULTS_CSV_PATH
 
 with open(csv_path, "w", newline="") as f:
     writer = csv.DictWriter(

@@ -1,4 +1,7 @@
-/.devcontainer
-/.venv
+.devcontainer
+.venv
+__pycache__
 compiled
 bin
+.env
+analysis_prompt.txt

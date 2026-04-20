@@ -3,105 +3,196 @@
     {
       "config": "rs_off_vec_off_par_off_tile_16",
       "distance": 0,
-      "median_runtime": 1.152183,
+      "median_runtime": 1.148953,
       "vectorize": "off",
       "reschedule": "off"
     },
     {
       "config": "rs_off_vec_off_par_off_tile_32",
       "distance": 1,
-      "median_runtime": 1.666646,
+      "median_runtime": 1.217509,
       "vectorize": "off",
       "reschedule": "off"
     },
     {
       "config": "rs_off_vec_off_par_off_tile_64",
       "distance": 1,
-      "median_runtime": 1.136163,
+      "median_runtime": 1.205871,
       "vectorize": "off",
       "reschedule": "off"
     },
     {
       "config": "rs_off_vec_off_par_on_tile_16",
       "distance": 1,
-      "median_runtime": 3.251087,
+      "median_runtime": 2.450283,
+      "vectorize": "off",
+      "reschedule": "off"
+    },
+    {
+      "config": "rs_off_vec_off_par_on_tile_32",
+      "distance": 2,
+      "median_runtime": 2.448038,
+      "vectorize": "off",
+      "reschedule": "off"
+    },
+    {
+      "config": "rs_off_vec_off_par_on_tile_64",
+      "distance": 2,
+      "median_runtime": 2.596119,
       "vectorize": "off",
       "reschedule": "off"
     },
     {
       "config": "rs_off_vec_on_par_off_tile_16",
       "distance": 1,
-      "median_runtime": 0.675091,
+      "median_runtime": 0.662993,
       "vectorize": "on",
       "reschedule": "off"
     },
     {
       "config": "rs_off_vec_on_par_off_tile_32",
       "distance": 2,
-      "median_runtime": 0.660131,
+      "median_runtime": 0.684578,
+      "vectorize": "on",
+      "reschedule": "off"
+    },
+    {
+      "config": "rs_off_vec_on_par_off_tile_64",
+      "distance": 2,
+      "median_runtime": 0.679546,
       "vectorize": "on",
       "reschedule": "off"
     },
     {
       "config": "rs_off_vec_on_par_on_tile_16",
       "distance": 2,
-      "median_runtime": 0.993218,
+      "median_runtime": 1.277047,
+      "vectorize": "on",
+      "reschedule": "off"
+    },
+    {
+      "config": "rs_off_vec_on_par_on_tile_32",
+      "distance": 3,
+      "median_runtime": 1.242996,
+      "vectorize": "on",
+      "reschedule": "off"
+    },
+    {
+      "config": "rs_off_vec_on_par_on_tile_64",
+      "distance": 3,
+      "median_runtime": 1.181116,
       "vectorize": "on",
       "reschedule": "off"
     },
     {
       "config": "rs_on_vec_off_par_off_tile_16",
       "distance": 1,
-      "median_runtime": 1.215867,
+      "median_runtime": 1.167148,
       "vectorize": "off",
       "reschedule": "on"
     },
     {
       "config": "rs_on_vec_off_par_off_tile_32",
       "distance": 2,
-      "median_runtime": 1.080338,
+      "median_runtime": 1.266597,
+      "vectorize": "off",
+      "reschedule": "on"
+    },
+    {
+      "config": "rs_on_vec_off_par_off_tile_64",
+      "distance": 2,
+      "median_runtime": 1.26935,
       "vectorize": "off",
       "reschedule": "on"
     },
     {
       "config": "rs_on_vec_off_par_on_tile_16",
       "distance": 2,
-      "median_runtime": 2.492464,
+      "median_runtime": 2.885349,
+      "vectorize": "off",
+      "reschedule": "on"
+    },
+    {
+      "config": "rs_on_vec_off_par_on_tile_32",
+      "distance": 3,
+      "median_runtime": 3.040033,
+      "vectorize": "off",
+      "reschedule": "on"
+    },
+    {
+      "config": "rs_on_vec_off_par_on_tile_64",
+      "distance": 3,
+      "median_runtime": 2.74504,
       "vectorize": "off",
       "reschedule": "on"
     },
     {
       "config": "rs_on_vec_on_par_off_tile_16",
       "distance": 2,
-      "median_runtime": 0.656329,
+      "median_runtime": 0.669617,
+      "vectorize": "on",
+      "reschedule": "on"
+    },
+    {
+      "config": "rs_on_vec_on_par_off_tile_32",
+      "distance": 3,
+      "median_runtime": 0.679676,
+      "vectorize": "on",
+      "reschedule": "on"
+    },
+    {
+      "config": "rs_on_vec_on_par_off_tile_64",
+      "distance": 3,
+      "median_runtime": 0.682734,
+      "vectorize": "on",
+      "reschedule": "on"
+    },
+    {
+      "config": "rs_on_vec_on_par_on_tile_16",
+      "distance": 3,
+      "median_runtime": 1.209741,
+      "vectorize": "on",
+      "reschedule": "on"
+    },
+    {
+      "config": "rs_on_vec_on_par_on_tile_32",
+      "distance": 4,
+      "median_runtime": 1.522212,
+      "vectorize": "on",
+      "reschedule": "on"
+    },
+    {
+      "config": "rs_on_vec_on_par_on_tile_64",
+      "distance": 4,
+      "median_runtime": 1.201907,
       "vectorize": "on",
       "reschedule": "on"
     }
   ],
   "bar": [
     {
+      "config": "rs_off_vec_on_par_off_tile_16",
+      "speedup": 1.7329790812271015
+    },
+    {
       "config": "rs_on_vec_on_par_off_tile_16",
-      "speedup": 1.7554961002789757
+      "speedup": 1.7158360674833522
+    },
+    {
+      "config": "rs_off_vec_on_par_off_tile_64",
+      "speedup": 1.690765599385472
+    },
+    {
+      "config": "rs_on_vec_on_par_off_tile_32",
+      "speedup": 1.6904422107003925
+    },
+    {
+      "config": "rs_on_vec_on_par_off_tile_64",
+      "speedup": 1.682870634829963
     },
     {
       "config": "rs_off_vec_on_par_off_tile_32",
-      "speedup": 1.745385385628004
-    },
-    {
-      "config": "rs_off_vec_on_par_off_tile_16",
-      "speedup": 1.706707688296837
-    },
-    {
-      "config": "rs_off_vec_on_par_on_tile_16",
-      "speedup": 1.1600504622348768
-    },
-    {
-      "config": "rs_on_vec_off_par_off_tile_32",
-      "speedup": 1.0665023353802234
-    },
-    {
-      "config": "rs_off_vec_off_par_off_tile_64",
-      "speedup": 1.0141000895118042
+      "speedup": 1.6783376036039719
     },
     {
       "config": "rs_off_vec_off_par_off_tile_16",
@@ -109,130 +200,312 @@
     },
     {
       "config": "rs_on_vec_off_par_off_tile_16",
-      "speedup": 0.9476225606912597
+      "speedup": 0.9844107174068754
+    },
+    {
+      "config": "rs_off_vec_on_par_on_tile_64",
+      "speedup": 0.9727689744275752
+    },
+    {
+      "config": "rs_on_vec_on_par_on_tile_64",
+      "speedup": 0.9559416826759474
+    },
+    {
+      "config": "rs_off_vec_off_par_off_tile_64",
+      "speedup": 0.9527992629394023
+    },
+    {
+      "config": "rs_on_vec_on_par_on_tile_16",
+      "speedup": 0.9497512277421365
     },
     {
       "config": "rs_off_vec_off_par_off_tile_32",
-      "speedup": 0.691318372347817
+      "speedup": 0.9436915866741026
     },
     {
-      "config": "rs_on_vec_off_par_on_tile_16",
-      "speedup": 0.4622666566096842
+      "config": "rs_off_vec_on_par_on_tile_32",
+      "speedup": 0.9243416712523611
+    },
+    {
+      "config": "rs_on_vec_off_par_off_tile_32",
+      "speedup": 0.9071180493874531
+    },
+    {
+      "config": "rs_on_vec_off_par_off_tile_64",
+      "speedup": 0.9051506676645527
+    },
+    {
+      "config": "rs_off_vec_on_par_on_tile_16",
+      "speedup": 0.8996951560905745
+    },
+    {
+      "config": "rs_on_vec_on_par_on_tile_32",
+      "speedup": 0.7547917110100301
+    },
+    {
+      "config": "rs_off_vec_off_par_on_tile_32",
+      "speedup": 0.46933626030314884
     },
     {
       "config": "rs_off_vec_off_par_on_tile_16",
-      "speedup": 0.3543993132143188
+      "speedup": 0.46890624470724396
+    },
+    {
+      "config": "rs_off_vec_off_par_on_tile_64",
+      "speedup": 0.44256561428809693
+    },
+    {
+      "config": "rs_on_vec_off_par_on_tile_64",
+      "speedup": 0.4185560137557194
+    },
+    {
+      "config": "rs_on_vec_off_par_on_tile_16",
+      "speedup": 0.39820243582318804
+    },
+    {
+      "config": "rs_on_vec_off_par_on_tile_32",
+      "speedup": 0.37794096314086056
     }
   ],
   "box": [
     {
       "config": "rs_off_vec_off_par_off_tile_16",
       "runtime": [
-        1.075882,
-        1.186438,
-        1.165866,
-        1.115511,
-        1.152183
+        1.125132,
+        1.089633,
+        1.200883,
+        1.239338,
+        1.148953
       ]
     },
     {
       "config": "rs_off_vec_off_par_off_tile_32",
       "runtime": [
-        2.263551,
-        2.116145,
-        1.666646,
-        1.289894,
-        1.371096
+        1.092003,
+        1.66414,
+        1.217509,
+        1.49165,
+        1.129998
       ]
     },
     {
       "config": "rs_off_vec_off_par_off_tile_64",
       "runtime": [
-        1.136163,
-        1.223302,
-        1.101724,
-        1.089513,
-        1.206561
+        1.091895,
+        1.211839,
+        1.205871,
+        1.286628,
+        1.112453
       ]
     },
     {
       "config": "rs_off_vec_off_par_on_tile_16",
       "runtime": [
-        2.870746,
-        3.251087,
-        3.031103,
-        3.746899,
-        3.376892
+        2.450283,
+        2.407712,
+        2.53311,
+        2.097375,
+        2.58211
+      ]
+    },
+    {
+      "config": "rs_off_vec_off_par_on_tile_32",
+      "runtime": [
+        2.503301,
+        2.35401,
+        2.367084,
+        2.466456,
+        2.448038
+      ]
+    },
+    {
+      "config": "rs_off_vec_off_par_on_tile_64",
+      "runtime": [
+        2.642827,
+        2.594121,
+        2.487255,
+        2.686902,
+        2.596119
       ]
     },
     {
       "config": "rs_off_vec_on_par_off_tile_16",
       "runtime": [
-        0.665046,
-        0.722154,
-        0.675091,
-        0.678387,
-        0.657254
+        0.662993,
+        0.660051,
+        0.670612,
+        0.668599,
+        0.660305
       ]
     },
     {
       "config": "rs_off_vec_on_par_off_tile_32",
       "runtime": [
-        0.668159,
-        0.663331,
-        0.660131,
-        0.647785,
-        0.657649
+        0.677514,
+        0.727584,
+        0.688293,
+        0.65727,
+        0.684578
+      ]
+    },
+    {
+      "config": "rs_off_vec_on_par_off_tile_64",
+      "runtime": [
+        0.666607,
+        0.719098,
+        0.679546,
+        0.683654,
+        0.677014
       ]
     },
     {
       "config": "rs_off_vec_on_par_on_tile_16",
       "runtime": [
-        1.099709,
-        0.993218,
-        0.910155,
-        1.1164,
-        0.969477
+        1.277047,
+        1.267901,
+        1.439326,
+        1.142633,
+        1.310933
+      ]
+    },
+    {
+      "config": "rs_off_vec_on_par_on_tile_32",
+      "runtime": [
+        1.242996,
+        1.282431,
+        1.238322,
+        1.16152,
+        1.349444
+      ]
+    },
+    {
+      "config": "rs_off_vec_on_par_on_tile_64",
+      "runtime": [
+        1.171555,
+        1.181116,
+        1.083216,
+        1.217964,
+        1.255829
       ]
     },
     {
       "config": "rs_on_vec_off_par_off_tile_16",
       "runtime": [
-        1.188027,
-        1.235523,
-        1.243267,
-        1.202206,
-        1.215867
+        1.295561,
+        1.167148,
+        1.316992,
+        1.12456,
+        1.144202
       ]
     },
     {
       "config": "rs_on_vec_off_par_off_tile_32",
       "runtime": [
-        1.080338,
-        1.084777,
-        1.075681,
-        1.076833,
-        1.087102
+        1.266802,
+        1.274908,
+        1.257354,
+        1.219405,
+        1.266597
+      ]
+    },
+    {
+      "config": "rs_on_vec_off_par_off_tile_64",
+      "runtime": [
+        1.26935,
+        1.215763,
+        1.415964,
+        1.390505,
+        1.178746
       ]
     },
     {
       "config": "rs_on_vec_off_par_on_tile_16",
       "runtime": [
-        2.193527,
-        2.492464,
-        2.73559,
-        2.294302,
-        2.699449
+        2.810049,
+        2.993777,
+        3.485322,
+        2.885349,
+        2.795875
+      ]
+    },
+    {
+      "config": "rs_on_vec_off_par_on_tile_32",
+      "runtime": [
+        2.740271,
+        3.040033,
+        2.646828,
+        4.330648,
+        3.164627
+      ]
+    },
+    {
+      "config": "rs_on_vec_off_par_on_tile_64",
+      "runtime": [
+        3.149658,
+        3.129537,
+        2.550121,
+        2.74504,
+        2.717403
       ]
     },
     {
       "config": "rs_on_vec_on_par_off_tile_16",
       "runtime": [
-        0.673638,
-        0.695793,
-        0.656329,
-        0.653388,
-        0.651946
+        0.676858,
+        0.655216,
+        0.655036,
+        0.683352,
+        0.669617
+      ]
+    },
+    {
+      "config": "rs_on_vec_on_par_off_tile_32",
+      "runtime": [
+        0.666797,
+        0.711622,
+        0.675782,
+        0.689764,
+        0.679676
+      ]
+    },
+    {
+      "config": "rs_on_vec_on_par_off_tile_64",
+      "runtime": [
+        0.684474,
+        0.699098,
+        0.680986,
+        0.682734,
+        0.663095
+      ]
+    },
+    {
+      "config": "rs_on_vec_on_par_on_tile_16",
+      "runtime": [
+        1.0869,
+        1.209741,
+        1.229731,
+        1.026963,
+        1.372934
+      ]
+    },
+    {
+      "config": "rs_on_vec_on_par_on_tile_32",
+      "runtime": [
+        1.478555,
+        1.522212,
+        1.468131,
+        1.863524,
+        1.530693
+      ]
+    },
+    {
+      "config": "rs_on_vec_on_par_on_tile_64",
+      "runtime": [
+        1.201907,
+        1.322708,
+        1.124209,
+        1.138355,
+        1.205207
       ]
     }
   ],
@@ -248,14 +521,14 @@
     ],
     "values": [
       [
-        1.184025,
-        1.3734920000000002,
-        1.136163
+        1.1580504999999999,
+        1.2420529999999999,
+        1.2376105
       ],
       [
-        0.66571,
-        0.660131,
-        NaN
+        0.666305,
+        0.6821269999999999,
+        0.68114
       ]
     ]
   }

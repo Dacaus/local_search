@@ -9,11 +9,26 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import seaborn as sns
-import os
+import json
+import sys
+from pathlib import Path
 
-# 与 search_local.py 保持一致的输出目录
-OUTPUT_DIR = "output_local"
-csv_path = f"{OUTPUT_DIR}/results.csv"
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+from config import (
+    PROJECT_ROOT,
+    BOXPLOT_PNG,
+    DISTANCE_RUNTIME_PNG,
+    HEATMAP_PNG,
+    PLOT_DATA_PATH,
+    RESULTS_CSV_PATH,
+    SPEEDUP_BAR_PNG,
+)
+
+# 与 benchmark 脚本保持一致的输出目录
+csv_path = RESULTS_CSV_PATH
 
 # 读取数据
 df = pd.read_csv(csv_path)
@@ -64,7 +79,7 @@ plt.grid(True, alpha=0.3)
 plt.axhline(y=baseline_median, color='gray', linestyle='--', alpha=0.7, label=f'Baseline ({baseline_median:.3f}s)')
 plt.legend(title="Vectorize / Reschedule")
 plt.tight_layout()
-scatter_path = f"{OUTPUT_DIR}/distance_vs_runtime.png"
+scatter_path = DISTANCE_RUNTIME_PNG
 plt.savefig(scatter_path, dpi=150)
 print(f"✅ Scatter plot saved to {scatter_path}")
 
@@ -73,16 +88,10 @@ print(f"✅ Scatter plot saved to {scatter_path}")
 # ------------------------------------------------------------
 plt.figure(figsize=(12, 5))
 # 按加速比降序排列
-order = summary.sort_values("speedup", ascending=False)["config"]
-colors = ["#2ecc71" if s >= 1.0 else "#e74c3c" for s in summary.sort_values("speedup", ascending=False)["speedup"]]
-ax = sns.barplot(
-    data=summary,
-    x="config",
-    y="speedup",
-    order=order,
-    palette=colors,
-    legend=False
-)
+ordered_summary = summary.sort_values("speedup", ascending=False)
+order = ordered_summary["config"].tolist()
+colors = ["#2ecc71" if s >= 1.0 else "#e74c3c" for s in ordered_summary["speedup"]]
+plt.bar(order, ordered_summary["speedup"], color=colors)
 plt.axhline(y=1.0, color='black', linestyle='--', linewidth=1, label='baseline (speedup=1.0)')
 plt.xticks(rotation=45, ha='right')
 plt.title("Speedup over Baseline Configuration")
@@ -90,7 +99,7 @@ plt.ylabel("Speedup (×)")
 plt.xlabel("Configuration")
 plt.legend()
 plt.tight_layout()
-bar_path = f"{OUTPUT_DIR}/speedup_bar.png"
+bar_path = SPEEDUP_BAR_PNG
 plt.savefig(bar_path, dpi=150)
 print(f"✅ Speedup bar chart saved to {bar_path}")
 
@@ -115,7 +124,7 @@ plt.title("Runtime Distribution Across 5 Runs per Configuration")
 plt.ylabel("Runtime (s)")
 plt.xlabel("Configuration")
 plt.tight_layout()
-box_path = f"{OUTPUT_DIR}/boxplot.png"
+box_path = BOXPLOT_PNG
 plt.savefig(box_path, dpi=150)
 print(f"✅ Boxplot saved to {box_path}")
 
@@ -136,14 +145,11 @@ if not subset.empty:
     sns.heatmap(pivot, annot=True, fmt=".3f", cmap="YlOrRd_r", cbar_kws={'label': 'Runtime (s)'})
     plt.title("Heatmap: Vectorize × Tile Size (parallel=off)")
     plt.tight_layout()
-    heat_path = f"{OUTPUT_DIR}/heatmap_vec_tile.png"
+    heat_path = HEATMAP_PNG
     plt.savefig(heat_path, dpi=150)
     print(f"✅ Heatmap saved to {heat_path}")
 
 print("\n🎉 All analyses complete. Check the output_local/ directory for figures.")
-
-
-import json
 
 # 散点图数据：每条记录对应一个配置的摘要信息
 scatter_data = summary[["config", "distance", "median_runtime", "vectorize", "reschedule"]].to_dict(orient="records")
@@ -173,7 +179,7 @@ plot_data = {
     "heatmap": heatmap_data
 }
 
-json_path = f"{OUTPUT_DIR}/plot_data.json"
+json_path = PLOT_DATA_PATH
 with open(json_path, "w", encoding="utf-8") as f:
     json.dump(plot_data, f, indent=2)
 
