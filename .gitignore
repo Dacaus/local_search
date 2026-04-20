@@ -1,3 +1,4 @@
 /.devcontainer
 /.venv
 compiled
+bin

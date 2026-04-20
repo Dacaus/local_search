@@ -1,0 +1,262 @@
+{
+  "scatter": [
+    {
+      "config": "rs_off_vec_off_par_off_tile_16",
+      "distance": 0,
+      "median_runtime": 1.152183,
+      "vectorize": "off",
+      "reschedule": "off"
+    },
+    {
+      "config": "rs_off_vec_off_par_off_tile_32",
+      "distance": 1,
+      "median_runtime": 1.666646,
+      "vectorize": "off",
+      "reschedule": "off"
+    },
+    {
+      "config": "rs_off_vec_off_par_off_tile_64",
+      "distance": 1,
+      "median_runtime": 1.136163,
+      "vectorize": "off",
+      "reschedule": "off"
+    },
+    {
+      "config": "rs_off_vec_off_par_on_tile_16",
+      "distance": 1,
+      "median_runtime": 3.251087,
+      "vectorize": "off",
+      "reschedule": "off"
+    },
+    {
+      "config": "rs_off_vec_on_par_off_tile_16",
+      "distance": 1,
+      "median_runtime": 0.675091,
+      "vectorize": "on",
+      "reschedule": "off"
+    },
+    {
+      "config": "rs_off_vec_on_par_off_tile_32",
+      "distance": 2,
+      "median_runtime": 0.660131,
+      "vectorize": "on",
+      "reschedule": "off"
+    },
+    {
+      "config": "rs_off_vec_on_par_on_tile_16",
+      "distance": 2,
+      "median_runtime": 0.993218,
+      "vectorize": "on",
+      "reschedule": "off"
+    },
+    {
+      "config": "rs_on_vec_off_par_off_tile_16",
+      "distance": 1,
+      "median_runtime": 1.215867,
+      "vectorize": "off",
+      "reschedule": "on"
+    },
+    {
+      "config": "rs_on_vec_off_par_off_tile_32",
+      "distance": 2,
+      "median_runtime": 1.080338,
+      "vectorize": "off",
+      "reschedule": "on"
+    },
+    {
+      "config": "rs_on_vec_off_par_on_tile_16",
+      "distance": 2,
+      "median_runtime": 2.492464,
+      "vectorize": "off",
+      "reschedule": "on"
+    },
+    {
+      "config": "rs_on_vec_on_par_off_tile_16",
+      "distance": 2,
+      "median_runtime": 0.656329,
+      "vectorize": "on",
+      "reschedule": "on"
+    }
+  ],
+  "bar": [
+    {
+      "config": "rs_on_vec_on_par_off_tile_16",
+      "speedup": 1.7554961002789757
+    },
+    {
+      "config": "rs_off_vec_on_par_off_tile_32",
+      "speedup": 1.745385385628004
+    },
+    {
+      "config": "rs_off_vec_on_par_off_tile_16",
+      "speedup": 1.706707688296837
+    },
+    {
+      "config": "rs_off_vec_on_par_on_tile_16",
+      "speedup": 1.1600504622348768
+    },
+    {
+      "config": "rs_on_vec_off_par_off_tile_32",
+      "speedup": 1.0665023353802234
+    },
+    {
+      "config": "rs_off_vec_off_par_off_tile_64",
+      "speedup": 1.0141000895118042
+    },
+    {
+      "config": "rs_off_vec_off_par_off_tile_16",
+      "speedup": 1.0
+    },
+    {
+      "config": "rs_on_vec_off_par_off_tile_16",
+      "speedup": 0.9476225606912597
+    },
+    {
+      "config": "rs_off_vec_off_par_off_tile_32",
+      "speedup": 0.691318372347817
+    },
+    {
+      "config": "rs_on_vec_off_par_on_tile_16",
+      "speedup": 0.4622666566096842
+    },
+    {
+      "config": "rs_off_vec_off_par_on_tile_16",
+      "speedup": 0.3543993132143188
+    }
+  ],
+  "box": [
+    {
+      "config": "rs_off_vec_off_par_off_tile_16",
+      "runtime": [
+        1.075882,
+        1.186438,
+        1.165866,
+        1.115511,
+        1.152183
+      ]
+    },
+    {
+      "config": "rs_off_vec_off_par_off_tile_32",
+      "runtime": [
+        2.263551,
+        2.116145,
+        1.666646,
+        1.289894,
+        1.371096
+      ]
+    },
+    {
+      "config": "rs_off_vec_off_par_off_tile_64",
+      "runtime": [
+        1.136163,
+        1.223302,
+        1.101724,
+        1.089513,
+        1.206561
+      ]
+    },
+    {
+      "config": "rs_off_vec_off_par_on_tile_16",
+      "runtime": [
+        2.870746,
+        3.251087,
+        3.031103,
+        3.746899,
+        3.376892
+      ]
+    },
+    {
+      "config": "rs_off_vec_on_par_off_tile_16",
+      "runtime": [
+        0.665046,
+        0.722154,
+        0.675091,
+        0.678387,
+        0.657254
+      ]
+    },
+    {
+      "config": "rs_off_vec_on_par_off_tile_32",
+      "runtime": [
+        0.668159,
+        0.663331,
+        0.660131,
+        0.647785,
+        0.657649
+      ]
+    },
+    {
+      "config": "rs_off_vec_on_par_on_tile_16",
+      "runtime": [
+        1.099709,
+        0.993218,
+        0.910155,
+        1.1164,
+        0.969477
+      ]
+    },
+    {
+      "config": "rs_on_vec_off_par_off_tile_16",
+      "runtime": [
+        1.188027,
+        1.235523,
+        1.243267,
+        1.202206,
+        1.215867
+      ]
+    },
+    {
+      "config": "rs_on_vec_off_par_off_tile_32",
+      "runtime": [
+        1.080338,
+        1.084777,
+        1.075681,
+        1.076833,
+        1.087102
+      ]
+    },
+    {
+      "config": "rs_on_vec_off_par_on_tile_16",
+      "runtime": [
+        2.193527,
+        2.492464,
+        2.73559,
+        2.294302,
+        2.699449
+      ]
+    },
+    {
+      "config": "rs_on_vec_on_par_off_tile_16",
+      "runtime": [
+        0.673638,
+        0.695793,
+        0.656329,
+        0.653388,
+        0.651946
+      ]
+    }
+  ],
+  "heatmap": {
+    "rows": [
+      "off",
+      "on"
+    ],
+    "columns": [
+      16,
+      32,
+      64
+    ],
+    "values": [
+      [
+        1.184025,
+        1.3734920000000002,
+        1.136163
+      ],
+      [
+        0.66571,
+        0.660131,
+        NaN
+      ]
+    ]
+  }
+}
