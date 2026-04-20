@@ -8,7 +8,7 @@
 #
 # Need:
 #   clang with Polly enabled
-#   matmul.c (prints runtime in seconds)
+#   benchmarks/matmul.c (prints runtime in seconds)
 # -----------------------------------------
 
 

@@ -7,7 +7,7 @@ DATA_DIR = PROJECT_ROOT / "data"
 OUTPUT_LOCAL_DIR = PROJECT_ROOT / "output_local"
 OUTPUT_LOCAL_BIN_DIR = OUTPUT_LOCAL_DIR / "bin"
 
-MATMUL_PATH = OUTPUT_LOCAL_DIR / "matmul.c"
+MATMUL_PATH = PROJECT_ROOT / "benchmarks" / "matmul.c"
 RESULTS_CSV_PATH = OUTPUT_LOCAL_DIR / "results.csv"
 PLOT_DATA_PATH = OUTPUT_LOCAL_DIR / "plot_data.json"
 DISTANCE_RUNTIME_PNG = OUTPUT_LOCAL_DIR / "distance_vs_runtime.png"
