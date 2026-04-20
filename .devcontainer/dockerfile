@@ -1,0 +1,57 @@
+# 基础镜像
+FROM pytorch/pytorch:2.10.0-cuda13.0-cudnn9-runtime
+# 维护者信息
+LABEL maintainer="2535262279@email.com"
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# 换源
+RUN sed -i 's@//.*archive.ubuntu.com@//mirrors.ustc.edu.cn@g' /etc/apt/sources.list.d/ubuntu.sources && \
+    sed -i 's/security.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list.d/ubuntu.sources && \
+    sed -i 's/http:/https:/g' /etc/apt/sources.list.d/ubuntu.sources
+
+
+
+# 安装开发工具
+RUN apt-get update && apt-get install -y \
+    gdb \
+    cmake \
+    git \
+    curl \
+    wget \
+    tree \
+    zstd \
+    libzstd-dev \
+    libedit-dev \
+    libcurl4-openssl-dev \
+    python3.12-venv \
+    xz-utils \
+    build-essential \
+    python3-dev \
+    lsb-release \
+    software-properties-common \
+    gnupg 
+# && rm -rf /var/lib/apt/lists/*
+
+# --- 安装 LLVM 22 (从官方源) ---
+# 1. 添加 LLVM 官方的 GPG 密钥
+RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
+
+# 2. 添加 LLVM 22 的 APT 源
+#    $(lsb_release -cs) 会自动获取 Ubuntu 版本代号，这里是 noble (24.04)
+RUN add-apt-repository "deb https://apt.llvm.org/$(lsb_release -cs)/ llvm-toolchain-$(lsb_release -cs)-22 main"
+
+# 3. 更新源并安装 LLVM 22 工具链
+RUN apt-get update && apt-get install -y \
+    clangd-22 \
+    clang-22 \
+    lld-22 \
+    lldb-22 \
+    llvm-22-dev \
+    libclang-22-dev 
+
+# 设置 LLVM 默认路径
+ENV PATH="/usr/lib/llvm-22/bin:${PATH}"
+
+# 默认工作目录
+WORKDIR /workspace

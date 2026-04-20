@@ -1,0 +1,40 @@
+{
+	"name": "irlr-dev",
+	"image": "irlr:latest",
+	"runArgs": [
+			"--runtime=nvidia"
+		],
+	// Configure vscode-extensions.
+	"customizations": {
+
+		"vscode": {
+			"settings": {
+				"github.copilot.editor.enableAutoCompletions": true,
+				"github.copilot.chat.codeGeneration.useInstructionFiles": true
+			},
+			// "remoteUser": "root",
+			"extensions": [
+				"ms-python.vscode-pylance",
+				"ms-python.python",
+				"ms-python.debugpy",
+				"ms-python.vscode-python-envs",
+				"github.copilot",
+				"github.copilot-chat",
+			]
+		}
+	},
+	"remoteEnv": {
+		"HTTP_PROXY": "http://host.docker.internal:3067",
+		"HTTPS_PROXY": "http://host.docker.internal:3067",
+		"NO_PROXY": "localhost,127.0.0.1"
+	},
+	// 添加以下配置来挂载 SSH 密钥
+	"mounts": [
+		
+		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/root/.ssh,type=bind"
+	],
+	"containerEnv": {
+		"PATH": "/usr/lib/llvm-22/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+	},
+	"postCreateCommand": "bash .devcontainer/setup.sh"
+}
