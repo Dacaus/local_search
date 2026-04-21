@@ -1,5 +1,5 @@
 {
-	"name": "irlr-dev",
+	"name": "local_search",
 	"image": "irlr:latest",
 	"runArgs": [
 			"--runtime=nvidia"
